@@ -15,7 +15,7 @@ To run the project on an iphone/iPad/android device, install phoneGap at http://
 
 ##Other
 
-More info on Angular Material can be found on their [website](https://material.angularjs.org/#/). If you want to integrate Angular into the Cordova part of the application as well, I recomment using [ngCordova](http://ngcordova.com).
+More info on Angular Material can be found on their [website](https://material.angularjs.org/#/). If you want to integrate Angular into the Cordova part of the application as well, I recommend using [ngCordova](http://ngcordova.com).
 
 Enjoy!
 
