@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html ng-app = 'myApp'>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Testing Angular Material</title>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body layout="row" ng-controller = "mainCtrl" md-swipe-right="openLeft()" md-swipe-left="closeLeft()">
+
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+                    md-is-locked-open="$media('gt-md')">
+          <md-toolbar class="md-hue-2">
+            <h1 class="md-toolbar-tools">SideNav</h1>
+          </md-toolbar>
+          <md-list ng-controller = "sideNavController">
+              <md-item ng-repeat="menuItem in menu">
+                <a>
+                  <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                    <div class="inset">
+                      <ng-md-icon icon="{{menuItem.icon}}"></ng-md-icon>
+                    </div>
+                    <div class="inset pointer">{{menuItem.name}}
+                    </div>
+                  </md-item-content>
+                </a>
+              </md-item>
+          <md-divider></md-divider>
+          <md-subheader>Other</md-subheader>
+          <md-item>
+            <a>
+              <md-item-content md-ink-ripple layout="row" layout-align="start center" ng-click = "openSettings()">
+                <div class="inset">
+                  <ng-md-icon icon="settings"></ng-md-icon>
+                </div>
+                <div class="inset pointer">Settings
+                </div>
+              </md-item-content>
+            </a>
+          </md-item>
+        </md-list>
+        </md-sidenav>
+        <div layout = "column" flex layout-fill>
+            <md-toolbar layout = "row" layout-align = "start center">
+                <ng-md-icon icon = "menu" size = "32" id = "hamburger" hide-gt-md ng-click="toggleLeft()"></ng-md-icon>
+                <h1 class="md-toolbar-tools" flex>Angular Material with Cordova!</h1>
+            </md-toolbar>
+            <md-content flex>
+                <md-card ng-repeat = "img in myImages">
+                    <h4>{{img.name}}</h4>
+                    <img src="img/dummy{{img.suffix}}.jpg" alt="">
+                </md-card>
+            </md-content>
+        </div>
+
+        <!-- ANGULAR STUFF -->
+        <script src="./bower_components/angular/angular.js"></script>
+        <script src="./bower_components/angular-route/angular-route.js"></script>
+        <script src="./bower_components/angular-aria/angular-aria.js"></script>
+        <script src="./bower_components/angular-animate/angular-animate.js"></script>
+        <script src="./bower_components/angular-material/angular-material.js"></script>
+        <!-- Icons -->
+        <script src="./bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+        <!-- CORDOVA -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/app.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
